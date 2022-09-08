@@ -1,0 +1,26 @@
+version: '3'
+
+services: 
+
+    app:
+        image: can-docker-test:latest  
+        container_name: can-test
+        command: ["sleep", "infinity"]
+        # Required to get udev events from host udevd via netlink
+        # uses the host's network stack for the container.
+        network_mode: host
+        volumes:
+          - ./:/usr/src/app
+          - type: bind
+            source: /tmp
+            target: /tmp
+          - type: bind
+            source: /dev
+            target: /dev
+          - type: bind
+            source: /run/udev
+            target: /run/udev
+      # For interacting with the network stack, this allow to modify the network interfaces.
+        cap_add:
+          - NET_ADMIN
+

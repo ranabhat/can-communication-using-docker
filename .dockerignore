@@ -1,0 +1,14 @@
+.devcontainer
+**/.git
+**/.gitignore
+**/.vscode
+**/coverage
+**/.env
+Dockerfile
+README.md
+docker-compose.yml
+**/.DS_Store
+**/venv
+**/env
+__pycache__
+*.pyc
